@@ -8,7 +8,7 @@ public class Main {
         System.out.println(Kolory.greenText + "**********************]| MENU |[**************************" + Kolory.resetText);
         System.out.println("    1. WYPISZ WSZYSTKICH PRACOWNIKOW (OKROJONE DANE)");
         System.out.println("    2. DODAJ PRACOWNIKA");
-        System.out.println("    3. ZAKONCZ");
+        System.out.println("    0. ZAKONCZ");
         System.out.println(Kolory.greenText + "**********************************************************" + Kolory.resetText);
         System.out.println("Wpisz liczbe z menu...");
 
@@ -21,11 +21,11 @@ public class Main {
 
         int wybor = menu();
 
-        while(wybor != 3){
+        while(wybor != 0){
             switch (wybor) {
-                case 1 -> lista.wyswietlPracownikowDaneOkrojone();
-                case 2 -> lista.dodajPracownika();
-            }
+                    case 1 -> lista.wyswietlPracownikowDaneOkrojone();
+                    case 2 -> lista.dodajPracownika();
+                }
             wybor = menu();
         }
 
