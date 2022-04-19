@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Lista {
@@ -56,4 +58,52 @@ public class Lista {
             }
         }
     }
+
+    public void wyswietlPracownikowDanePelne(){
+        System.out.println(Kolory.greenText + "Lista pracownikow (dane pelne):" + Kolory.resetText);
+        for(int i=0; i<pracownicy.length; i++){
+            if(pracownicy[i]!=null) {
+                System.out.println("ID: " + i);
+                pracownicy[i].wyswietlPelneDane();
+            }
+        }
+    }
+    public void eksportDoPlikuTekstowego() throws FileNotFoundException {
+        Scanner scanner = new Scanner(System.in);
+        String nazwaPliku = "";
+        String str = "";
+
+        System.out.println("Podaj nazwe pliku bez rozszerzenia: ");
+        nazwaPliku = scanner.nextLine();
+
+        PrintWriter printWriter = new PrintWriter(nazwaPliku + ".txt");
+        for(Pracownik p: pracownicy){
+            if (p != null) {
+                str += p.getNazwisko() + " ";
+                str += p.getImie() + " ";
+                str += p.getPlec() + " ";
+                str += p.getNr_dzialu() + " ";
+                str += p.getPlaca();
+                str += p.getWiek();
+                str += p.getDzieci();
+                str += "\n";
+            } else {
+                break;
+            }
+        }
+        str = str.trim();
+        printWriter.println(str);
+        printWriter.close();
+    }
+    public void usunPracownika(){
+        Scanner scanner = new Scanner(System.in);
+        int idPracownika = 0;
+        wyswietlPracownikowDanePelne();
+        System.out.println("Podaj ID pracownika do usuniecia: ");
+        idPracownika = scanner.nextInt();
+        scanner.nextLine();
+        pracownicy[idPracownika] = null;
+        System.out.println("Pracownik o ID: " + idPracownika + " zostal usuniety");
+    }
+
 }
