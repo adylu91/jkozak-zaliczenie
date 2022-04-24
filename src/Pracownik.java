@@ -16,11 +16,15 @@ public class Pracownik {
         this.placa = placa;
         this.wiek = wiek;
         this.dzieci = dzieci;
-        this.stan_cywilny = stan_cywilny; //je≈õli true ≈ºonaty/mƒô≈ºatka
+        this.stan_cywilny = stan_cywilny; //jeúli true øonaty/mÍøatka
     }
 
     public String getImie() {
         return imie;
+    }
+
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
     }
 
     public String getNazwisko() {
@@ -77,34 +81,28 @@ public class Pracownik {
         return cap;
     }
 
-    /*
-DO ZROBIENIA:
-‚Ä¢ obliczanie podwy≈ºki // procedura z parametrem, kt√≥ry okre≈õla procent podniesienia pensji ‚Äì dodatkowo, za ka≈ºde
-dziecko pracownika zwiƒôksza mu siƒô pensjƒô o 2 procent, natomiast pracownicy bƒôdƒÖcy w formalnym zwiƒÖzku
-dodatkowo dostajƒÖ 3 procent podwy≈ºki) ;
-     */
     public void wyswietlPelneDane(){
-        System.out.println("Imie: " + imie);
+        System.out.println("ImiÍ: " + imie);
         System.out.println("Nazwisko: " + nazwisko);
-        System.out.println("Plec: " + plec);
-        System.out.println("Numer dzialu: " + nr_dzialu);
-        System.out.println("Placa: " + placa);
+        System.out.println("PleÊ: " + plec);
+        System.out.println("Numer dzia≥u: " + nr_dzialu);
+        System.out.println("P≥aca: " + placa);
         System.out.println("Wiek: " + wiek);
-        System.out.println("Ilosc dzieci: " + dzieci);
-        System.out.println("Stan cywilny: " + imie);
+        System.out.println("IloúÊ dzieci: " + dzieci);
+        System.out.println("Stan cywilny: " + stan_cywilny);
         System.out.println();
     }
 
     public void wyswietlOkrojoneDane(){
-        System.out.println("Imie: " + imie);
+        System.out.println("ImiÍ: " + imie);
         System.out.println("Nazwisko: " + nazwisko);
-        System.out.println("Placa: " + placa);
+        System.out.println("P≥aca: " + placa);
         System.out.println();
     }
 
-    public void wyswietlSpecjalne(){
+    public void wyswietlSpecjalneDane(){
         //imie i nazwisko z duzych liter
-        System.out.println("Imie: " + imie.toUpperCase());
+        System.out.println("ImiÍ: " + imie.toUpperCase());
         System.out.println("Nazwisko: " + nazwisko.toUpperCase());
         System.out.println();
     }
@@ -113,16 +111,15 @@ dodatkowo dostajƒÖ 3 procent podwy≈ºki) ;
         return wartosc > placa;
     }
 
-    public void obliczaniePodwy≈ºki(float procent){
+    public void obliczaniePodwyøki(float procent){
         float procentNaDzieci = dzieci * 2;
         float procentNaStanCywilny = stan_cywilny ? 3 : 1;
         float podwyzka = placa*(procent+procentNaDzieci+procentNaStanCywilny)/100;
-        System.out.println("OBLICZANIE PODWYZKI:");
-        System.out.println("Procent podwyzki %: " + procent );
+        System.out.println("OBLICZANIE PODWYØKI:");
+        System.out.println("Procent podwyøki %: " + procent );
         System.out.println("dodatek do dzieci %: " + procentNaDzieci );
         System.out.println("dodatek do stanu cywilnego %: " + procentNaStanCywilny );
         System.out.println("razem %: " + (procent + procentNaDzieci + procentNaStanCywilny));
-        System.out.println("Kwota podwyzki: " + podwyzka );
+        System.out.println("Kwota podwyøki: " + podwyzka );
     }
-
 }
